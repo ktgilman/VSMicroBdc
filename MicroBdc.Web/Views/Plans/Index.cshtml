@@ -1,0 +1,40 @@
+﻿@model MicroBdc.Web.Models.PlanViewModel
+
+@{
+    ViewBag.Title = "Plan Builder";
+}
+
+<h2>View</h2>
+
+
+    @if (ViewBag.Plans == null)
+    {
+        <p>You are not logged in</p>
+    }
+    else if (ViewBag.Plans.Count == 0)
+    {
+        <p>There are no Plans</p>
+    }
+    else
+    {
+        foreach (var plan in ViewBag.Plans)
+        {
+            <p>@Html.ActionLink((string)plan.PlanName, "Show", "Plans", new { id = plan.PlanId }, null)</p>
+            <p>@Html.ActionLink("Edit", "Edit", "Plans", new {id = plan.PlanId}, null)
+                @Html.ActionLink("Delete", "Delete", "Plans", new { id = plan.PlanId }, null)
+            </p>
+        }
+    }
+
+@using (Html.BeginForm("Index", "Plans", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <h4>Create New Plan</h4>
+    <hr />
+    @Html.Partial("_PlanFormPartial")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+

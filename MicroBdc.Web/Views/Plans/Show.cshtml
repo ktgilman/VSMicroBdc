@@ -1,0 +1,24 @@
+﻿@model MicroBdc.Web.Models.PlanViewModel
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+
+<p>@Model.PlanName</p>
+
+@using (Html.BeginForm("Initial", "Wizard", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    @Html.HiddenFor(m => m.PlanId);
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Start Wizard" class="btn btn-default" />
+        </div>
+    </div>
+}
+

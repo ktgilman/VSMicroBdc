@@ -1,0 +1,24 @@
+﻿@model MicroBdc.Web.Models.WizardViewModel
+
+@{
+    ViewBag.Title = "Initial";
+}
+
+<h2>Initial</h2>
+
+@using (Html.BeginForm("Update", "Wizard", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.EditorFor(x => x.Plan)
+
+    @Html.EditorFor(x => x.QCAs)
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+

@@ -1,0 +1,17 @@
+﻿@model MicroBdc.Web.Models.PlanViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Show", "Plans", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <h4>Edit Existing Plan</h4>
+    <hr />
+    @Html.Partial("_PlanFormPartial")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

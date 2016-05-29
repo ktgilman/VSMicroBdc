@@ -1,0 +1,48 @@
+﻿@model MicroBdc.Web.Models.AnswerViewModel
+
+@Html.HiddenFor(x => x.AnswerId)
+@Html.HiddenFor(x => x.QuestionId)
+
+@if (Model.ChoiceType == "R")
+{
+    @Html.EditorFor(x => x.ChoicesViewModel)
+    @Html.HiddenFor(x => x.IsSelected)
+    
+    <div class="form-group">
+        @foreach (var Choice in Model.ChoicesViewModel)
+        {
+        <div class="radio">
+            @Html.RadioButtonFor(x => x.ChoiceId, Choice.ChoiceId)
+            @Html.Label(Choice.ChoiceContent)
+        </div>
+
+        }
+    </div>
+    
+}
+@if (Model.ChoiceType == "C")
+{
+    @Html.EditorFor(x => x.ChoicesViewModel)
+    @Html.HiddenFor(x => x.ChoiceId)
+    
+    foreach (var Choice in Model.ChoicesViewModel)
+    {
+        <div class = "checkbox">
+            @Html.CheckBoxFor(x => x.IsSelected)
+            @Html.Label(Model.AnswerContent)
+        </div>
+    }
+}
+
+@if (Model.ChoiceType == "F")
+{
+    @Html.HiddenFor(x => x.IsSelected)
+    @Html.HiddenFor(x => x.ChoiceId)
+    <div class="form-group">
+        @Html.TextAreaFor(x => x.AnswerContent, new { @class = "col-md-12 form-control", rows = "3"})
+    </div>
+    
+}
+
+   
+

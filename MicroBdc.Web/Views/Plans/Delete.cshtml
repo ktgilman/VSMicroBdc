@@ -1,0 +1,12 @@
+﻿@model MicroBdc.Web.Models.PlanViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<p>Are you sure you want to delete?</p>
+
+<p>@Html.ActionLink("Confirm Delete", "ConfirmDelete", "Plans", new {id = Model.PlanId}, null)</p>
+

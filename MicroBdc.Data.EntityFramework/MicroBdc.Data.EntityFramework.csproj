@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1210A4C9-7088-4427-8B56-E86ADAABCAD0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MicroBdc.Data.EntityFramework</RootNamespace>
+    <AssemblyName>MicroBdc.Data.EntityFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthUnitOfWork.cs" />
+    <Compile Include="Configuration\Identity\ClaimConfiguration.cs" />
+    <Compile Include="Configuration\Identity\ExternalLoginConfiguration.cs" />
+    <Compile Include="Configuration\Identity\RoleConfiguration.cs" />
+    <Compile Include="Configuration\Identity\UserConfiguration.cs" />
+    <Compile Include="Configuration\PlanBuilder\AnswerConfiguration.cs" />
+    <Compile Include="Configuration\PlanBuilder\ChoiceConfiguration.cs" />
+    <Compile Include="Configuration\PlanBuilder\PlanConfiguration.cs" />
+    <Compile Include="Configuration\PlanBuilder\QuestionConfiguration.cs" />
+    <Compile Include="Context\IdentityDbContext.cs" />
+    <Compile Include="Context\PlanBuilderDbContext.cs" />
+    <Compile Include="Migrations\PlanBuilder\201509010040127_Correct_Add_Choice_Tables.cs" />
+    <Compile Include="Migrations\PlanBuilder\201509010040127_Correct_Add_Choice_Tables.Designer.cs">
+      <DependentUpon>201509010040127_Correct_Add_Choice_Tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\PlanBuilder\201508310054200_Add_Answers_Table.cs" />
+    <Compile Include="Migrations\PlanBuilder\201508310054200_Add_Answers_Table.Designer.cs">
+      <DependentUpon>201508310054200_Add_Answers_Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\PlanBuilder\201508301936268_Add_Choices_Table.cs" />
+    <Compile Include="Migrations\PlanBuilder\201508301936268_Add_Choices_Table.Designer.cs">
+      <DependentUpon>201508301936268_Add_Choices_Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\PlanBuilder\201508292347015_First_Seed_Questions.cs" />
+    <Compile Include="Migrations\PlanBuilder\201508292347015_First_Seed_Questions.Designer.cs">
+      <DependentUpon>201508292347015_First_Seed_Questions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\PlanBuilder\201508291848280_Initial_Create.cs" />
+    <Compile Include="Migrations\PlanBuilder\201508291848280_Initial_Create.Designer.cs">
+      <DependentUpon>201508291848280_Initial_Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\PlanBuilder\PlanBuilderConfiguration.cs" />
+    <Compile Include="Migrations\Identity\201508202312024_InitialCreate.cs" />
+    <Compile Include="Migrations\Identity\201508202312024_InitialCreate.Designer.cs">
+      <DependentUpon>201508202312024_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Identity\IdentityConfiguration.cs" />
+    <Compile Include="Migrations\PlanBuilder\Seed\ChoiceSeed.cs" />
+    <Compile Include="Migrations\PlanBuilder\Seed\QuestionSeed.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Identity\ExternalLoginRepository.cs" />
+    <Compile Include="Repositories\Identity\Repository.cs" />
+    <Compile Include="Repositories\Identity\RoleRepository.cs" />
+    <Compile Include="Repositories\Identity\UserRepository.cs" />
+    <Compile Include="Repositories\PlanBuilder\AnswerRepository.cs" />
+    <Compile Include="Repositories\PlanBuilder\ChoiceRepository.cs" />
+    <Compile Include="Repositories\PlanBuilder\PlanRepository.cs" />
+    <Compile Include="Repositories\PlanBuilder\QuestionRepository.cs" />
+    <Compile Include="UnitsOfWork\SectionUnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MicroBdc.Domain\MicroBdc.Domain.csproj">
+      <Project>{6288e53a-cd1c-4952-b7eb-cadefeb6b96c}</Project>
+      <Name>MicroBdc.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MicroBdc.Entities\MicroBdc.Entities.csproj">
+      <Project>{1b0ae07f-a2ef-4d56-ae6b-bf762108e242}</Project>
+      <Name>MicroBdc.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\PlanBuilder\201509010040127_Correct_Add_Choice_Tables.resx">
+      <DependentUpon>201509010040127_Correct_Add_Choice_Tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\PlanBuilder\201508310054200_Add_Answers_Table.resx">
+      <DependentUpon>201508310054200_Add_Answers_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\PlanBuilder\201508301936268_Add_Choices_Table.resx">
+      <DependentUpon>201508301936268_Add_Choices_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\PlanBuilder\201508292347015_First_Seed_Questions.resx">
+      <DependentUpon>201508292347015_First_Seed_Questions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\PlanBuilder\201508291848280_Initial_Create.resx">
+      <DependentUpon>201508291848280_Initial_Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Identity\201508202312024_InitialCreate.resx">
+      <DependentUpon>201508202312024_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

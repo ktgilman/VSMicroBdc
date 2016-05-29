@@ -1,0 +1,25 @@
+﻿@model MicroBdc.Web.Models.QCAViewModel
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">@Model.QuestionViewModel.QuestionContent</div>
+    </div>
+        
+    <div class="panel-body">
+        @if (Model.QuestionViewModel.ChoiceType == "R" || Model.QuestionViewModel.ChoiceType == "F")
+        {
+            @Html.EditorFor(x => x.AnswersViewModel)
+        }
+
+        @if (Model.QuestionViewModel.ChoiceType == "C")
+        {
+            <div class="form-group">
+                @Html.EditorFor(x => x.AnswersViewModel)
+            </div>
+        }
+    </div>
+
+</div>
+
+
+
